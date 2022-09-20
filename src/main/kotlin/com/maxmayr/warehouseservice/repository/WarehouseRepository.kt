@@ -1,0 +1,6 @@
+package com.maxmayr.warehouseservice.repository
+
+import com.maxmayr.warehouseservice.model.ElasticSearchArticle
+import org.springframework.data.elasticsearch.repository.ElasticsearchRepository
+
+interface WarehouseRepository : ElasticsearchRepository<ElasticSearchArticle, String>
