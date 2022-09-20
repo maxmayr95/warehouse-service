@@ -162,51 +162,6 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
-				<groupId>io.fabric8</groupId>
-				<artifactId>docker-maven-plugin</artifactId>
-				<version>0.40.1</version>
-				<configuration>
-					<verbose>true</verbose>
-					<images>
-						<image>
-							<name>docker.elastic.co/elasticsearch/elasticsearch:7.10.0</name>
-							<alias>elasticsearch</alias>
-							<run>
-								<ports>
-									<port>9200:9200</port>
-									<port>9300:9300</port>
-								</ports>
-								<env>
-									<discovery.type>single-node</discovery.type>
-								</env>
-								<wait>
-									<time>60000</time><!-- 60 seconds max -->
-									<log>.*"message": "started".*</log>
-								</wait>
-							</run>
-						</image>
-					</images>
-				</configuration>
-				<executions>
-					<execution>
-						<id>start-docker</id>
-						<phase>pre-integration-test</phase>
-						<goals>
-							<goal>build</goal>
-							<goal>start</goal>
-						</goals>
-
-					</execution>
-					<execution>
-						<id>stop-docker</id>
-						<phase>post-integration-test</phase>
-						<goals>
-							<goal>stop</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
 		</plugins>
 	</build>
 	<profiles>
